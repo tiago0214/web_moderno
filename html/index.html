@@ -19,9 +19,17 @@
         Curso de Web Moderno
     </footer>
     <script>
-        document.querySelectorAll('a').forEach(function links(links){
-            console.log(links)
+        document.querySelectorAll('a').forEach(link=>{
+            link.onclick = function(e){
+                e.preventDefault()
+                console.log('Ação')
+                const conteudo = document.getElementById('conteudo')
+                fetch(link.href)
+                    .then(resp => resp.text())
+                    .then(html => conteudo.innerHTML=html)
+            }
         })
+
     </script>
 </body>
 </html>
