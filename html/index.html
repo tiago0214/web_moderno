@@ -12,20 +12,21 @@
         <h1>Exercícios HTML</h1>
     </header>
     <nav>
-        <a href wm-nav="exercicios/texto1.html">01 - texto 1 |</a>
-        <a href wm-nav="exercicios/texto2.html">02 - texto 2 |</a>
+        <a href="exercicios/texto1.html">01 - texto 1 |</a>
+        <a href="exercicios/texto2.html">02 - texto 2 |</a>
     </nav>
     <section id="conteudo"></section>
     <footer>
-        Curso de Web Moderno
+        <b>Curso de Web Moderno</b>
     </footer>
     <script>
-        document.querySelectorAll('[wm-nav]').forEach(link=>{
+        document.querySelectorAll('a').forEach(link=>{
+            
             link.onclick = function(e){
                 e.preventDefault()
     
                 const conteudo = document.getElementById('conteudo')
-                fetch(link.getAttribute('wm-nav'))
+                fetch(link.href)
                     .then(resp => resp.text())
                     .then(html => conteudo.innerHTML=html)
             }
