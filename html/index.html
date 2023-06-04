@@ -14,6 +14,8 @@
     <nav>
         <a href="exercicios/texto1.html">01 - texto 1 |</a>
         <a href="exercicios/texto2.html">02 - texto 2 |</a>
+        <a href="exercicios/listas.html">03 - lista 1 |</a>
+        <a href="exercicios/listaaninhada.html" >04 - lista aninhada |</a>
     </nav>
     <section id="conteudo"></section>
     <footer>
@@ -29,9 +31,10 @@
                 fetch(link.href)
                     .then(resp => resp.text())
                     .then(html => conteudo.innerHTML=html)
+                    
             }
         })
-
+          
     </script>
 </body>
 </html>
