@@ -1,0 +1,60 @@
+<h1>Tabela</h1>
+<table>
+    <caption>Produtos</caption> <!--Caption é para falar doque a tabela fala!-->
+    <thead><!--Funciona sem// é uma tag semântica-->
+        <tr>
+            <th>Produto</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody><!--Funciona sem// é uma tag semântica-->
+        <tr>
+            <td>Ipad</td>
+            <td>3600</td>
+            <td>2</td>
+            <td>7200</td>
+        </tr>
+        <tr>
+            <td>Samsung</td>
+            <td>2000</td>
+            <td>2</td>
+            <td>4000</td>
+        </tr>
+        <tr><!--Table rooler, represanta a linha da minha tabela.-->
+            <td>computador</td>
+            <td>5000</td>
+            <td>3</td>
+            <td>15000</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3"> <!--colspan, é para ocupar mais de uma coluna na minha tabela.--> <!--rowspan, ocupa mais de uma linha-->
+                Total
+            </td>
+            <td>26,200</td>
+        </tr>
+    </tfoot>
+</table>
+
+<style>
+    table{
+        border-collapse: collapse;
+    }
+    th,td{
+        padding: 10px;
+    }
+    thead th {
+        border-bottom: solid 3px #444;
+    }
+    tbody tr:hover {
+        background-color: #dedede;
+    }
+    tfoot{
+        background-color: #444;
+        color: #fff;
+        font-weight: bold;
+    }
+</style>

@@ -1,0 +1,20 @@
+<h1 id="voltar">Links</h1>
+<!--Url absoluta-->
+<a href="https://www.google.com.br">Google 1</a><br>
+<a href="https://www.google.com.br" target="_blank">Google 2</a>
+<hr>
+<!--URL relativa-->
+<a href="index.html">Voltar 1</a><!--Independente da url que eu estiver no momento ele só vai tentar mudar o final para index.html (dependendo o lugar: da erro)-->
+<a href="/index.html">Voltar 2</a><!--/ indica a pasta raiz. Ou seja o HTML, não consigo navegar para fora da minha pasta HTML , para outras, EX funcao-->
+<a href="../index.html">Voltar 3</a><!--Os dois pontos, indica que ele sai da minha pasta atual, e volta para a index.html, posso ficar usando ../../../ para ficar voltando-->
+<!--Ter em mente que os meus conteudos estão sendo servidos de forma de requisição AJAX, ou seja não sai da minha página raiz . (ele não muda a URL)-->
+<br><br>
+<h3>Email</h3>
+<a href="mailto:tiago0214@gmail.com">Entre em contato</a>
+
+<div id="noticia" style="position: absolute;top: 2000px;">
+    <h1>Noticia Buemba!</h1>
+    <p>Não era nada :) </p>
+    <a href="#voltar">Voltar</a>
+</div>
+<a href="#noticia">Ir para a noticia!</a>
