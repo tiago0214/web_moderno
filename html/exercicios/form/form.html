@@ -1,6 +1,51 @@
 <h1>Formulário</h1>
-
-<form action="http://localhost:3003/usuarios" method="post">
+<!-- lembrar ,que se eu usar o metodo GET os dados vão na minha URL, inclusive a senha.. -->
+<container>
+<form action="http://localhost:3003/usuarios" method="post"> <!--Posso colocar o action direto no botão, com esse propriedade formaction-->
+    <input type="hidden" name="id" value="3">
     <input type="text" name="nome">
-    <button>Incluir</button>
+    <input type="password" name="senha" >
+    <textarea name="bio" cols="30" rows="10"></textarea>
+    <div>
+    <input type="radio" name="tipo" value="Admin">Admin
+    <input type="radio" name="tipo" value="Regular">Regular
+    <input type="radio" name="tipo" value="Professor">Professor
+    </div>
+    <div>
+        <input type="checkbox" name="Ativo">Ativo
+    </div>
+    <select name="estado">
+        <option value="">Selecione</option>
+        <option value="ba">Bahia</option>
+        <option value="go">Goiás</option>
+        <option value="ms">Mato Grosso</option>
+    </select>
+    <select name="liguagem" multiple size="5" >
+        <option value="java">Java</option>
+        <option value="go">GO</option>
+        <option value="python">Python</option>
+        <option value="c">C</option>
+        <option value="c++">C++</option>
+    </select>
+    <button formaction="http://localhost:3003/usuarios">Incluir</button>
+    <button formaction="http://localhost:3003/usuarios/3">Alterar</button>
+
+</container>
 </form>
+<style>
+    input,textarea,select{
+        display: block;
+        margin-bottom: 10px;
+    }
+    input[type=radio],input[type=checkbox]{
+        display: inline;
+    }
+    .center{
+        margin-left: 100px;
+        display: block;
+    }
+    container{
+        width: 250px;
+        display: block;
+    }
+</style>

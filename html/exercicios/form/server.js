@@ -6,11 +6,19 @@ const bodyParser = require('body-parser')// ele funciona para toda vez que eu fa
 // ou seja, quando eu acessar request.body, eu vou ter acesso a todos os dados do formulário que eu submeti.
 //urlencode: é quando eu submeto um formulário, é o padrão que vem, então ele precisa fazer o parser a partir da urlencode
 
+//lembrar ,que se eu usar o metodo GET os dados vão na minha URL, inclusive a senha..
+
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.post('/usuarios',(req,resp)=>{
     console.log(req.body)
-    resp.send('Começou a aprender, parabéns!')
+    resp.send('Usuário incluido!')
+})
+
+app.post('/usuarios/:id',(req,resp)=>{
+    console.log(req.params.id)
+    console.log(req.body)
+    resp.send('Usuário alterado!')
 })
 
 app.listen(3003)
