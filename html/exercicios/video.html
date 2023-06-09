@@ -1,0 +1,57 @@
+<video id='meuVideo' width="800" height="450" controls>
+    <source src="http://files.cod3r.com.br/curso-web/video.mp4" type="video/mp4">
+    Msg que vai ser mostrada, caso não consiga reproduzir o video. 
+    Seu browser não suporta o formato do video!
+</video>
+<div wm="play" class="botoes">
+    <button onclick="play()">Play</button>
+</div>
+<div wm="pause" class="botoes">
+    <button onclick="pause()">Pause</button>
+</div>
+<div id="videoprogress" class="progress">
+    <div id="bar"></div>
+</div>
+<!-- com essa tag, eu posso colocar varios arquivos igual a tag picture -->
+<style>
+    .progress{
+        width: 750px;
+        height: 20px;
+        border: solid 2px black;
+        margin: 10px;
+    }
+    #bar {
+        background-color: red;
+        height: 100%;
+        width: 1%;
+    }
+    .botoes,button{
+        display:inline;
+        margin-bottom: 20px;
+        margin-left: 100px;
+    }
+    video{
+        display: block;
+        margin-bottom: 20px;
+    }
+
+</style>
+
+<script>
+    const video = document.getElementById('meuVideo')
+    const bar = document.getElementById('bar')
+    function play(){
+        video.play()
+    }
+    function pause(){
+        video.pause()
+    }
+   
+    setInterval(() => { 
+        const progresso = (video.currentTime/ video.duration) * 100
+        bar.style.width= progresso+'%'
+        bar.innerHTML=progresso.toFixed(1)+'%'
+    },5)
+    //video.addEventListener('timeupdate',atualizarbarra)
+    
+</script>

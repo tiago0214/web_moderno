@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" wm>
     <div class="myslide">
         <div class="numbertext">1/5</div>
         <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg" alt="Muro da cidade"
@@ -37,12 +37,11 @@
 
 
 <script>
-    let slideindex = 0
+    /*let slideindex = 0
     showslides()
     function showslides (){
-        let slides = document.getElementsByClassName('myslide')
-        for (i=0;i < slides.length; i++){
-            console.log([i])
+        let slides = document.getElementsByClassName('myslide')// se eu tivesse usado o querryselectorall(eu teria que ter convertido para array)
+        for (i=0;i < slides.length; i++){ // essa função percorreu todos os meu elementos e colocou o display none
             slides[i].style.display='none';
         }   
         slideindex++; //prestar muita atenção, se eu não colocar já para começar incrementando o meu indice, sempre ficaria mostrando o numero atual
@@ -53,10 +52,42 @@
         setTimeout(showslides, 2000); // o -1 só funciona aqui na hora de imprimir, ele não vai mudar efetivamente o valor da minha variavel lá em cima
         // seu não colocar o incremento slideindex++, ele vai sempre mostrar a mesma foto. Só que se eu não colocar o -1 toda vez que ele for mostrar a foto
         // ele nunca vai mostrar a primeira foto, ou seja o indice 0
+    }*/
+    
+    function mover (elem,inicio,fim,passo,callback){
+        const continuar = inicio - passo;
+        if (continuar >=fim){
+            elem.style.left = continuar +'px'
+            setTimeout(()=>mover(elem,continuar,fim,passo,callback), 7)
+        } else {
+            callback()
+        }
     }
+    
+    function slider(){
+        const elementos = document.querySelectorAll('[wm]>div') //querySelectorAll.. não retorna um array, ele retorna um nodelist... tem coisas diferentes
+        const slides = Array.from(elementos) //aqui simplismente, eu tenho todos os elementos (As fotos do slide)
+        exibirSlide(slides,slides[0]) // o nome do meu paramentro aqui, tem que ser certo, para fazer referencia ao meu array
+    }
+    slider()
+    function exibirSlide(slides,slide){// esse paramentro (slide)posso colocar o nome que eu quiser. (porque oque importa é eu colocar como parametro a função acima)
+        slide.style.display='block'
 
+        const inicio = innerWidth //O tamanho do meu browser(Largura interna da minha página)
+                                //se eu quiser uma largura de uma tag, eu posso usar o clientWidth. Que seria a largura do cliente.
+        const fim = -slide.clientWidth// aqui , eu estou falando para sair da minha tag.
+        slide.style.left= `${inicio}px` // aqui, eu estou setando onde a imagem vai começar
+        mover(slide,inicio,fim,5,()=>{//aqui no final, eu estou falando que quando a minha callback for chamada no mover
+            slide.style.display='none'
+            exibirSlide(slides,getProximo(slides,slide))
+        })
+    }
+    function getProximo(lista,atual){ //prestar atenção, que o valor de 'i' vai ser sempre o valor do próximo
+        const i = lista.indexOf(atual)+1
+        return i< lista.length ? lista [i] : lista [0]
+        //console.log(getproximo,i)
+    }
 </script>
-
     
 <style>
     .circular{
@@ -82,17 +113,11 @@
         position: absolute;
         padding: 8px 12px;
     }
-    .container{
-        max-width: 100vh;
-        position: relative;
-        margin: auto;
+    div{
+        position: absolute;
+    }
+    .myslide{
+        display: none;
     }
     
-    @keyframes transition {
-        from{
-            left: 0;
-        }to {
-            left: 100%;
-        }
-    }
 </style>
