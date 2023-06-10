@@ -1,37 +1,34 @@
 <div class="container" wm>
     <div class="myslide">
         <div class="numbertext">1/5</div>
-        <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg" alt="Muro da cidade"
-        width="513" height="342" title="Muro da cidade por Tarso Bessa">
+        <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg" alt="Muro da cidade" width="513" height="342"
+            title="Muro da cidade por Tarso Bessa">
     </div>
     <div class="myslide">
         <div class="numbertext">2/5</div>
-        <img src="http://files.cod3r.com.br/curso-web/imagem2.gif" alt="Intro Coder"
-        height="342">
+        <img src="http://files.cod3r.com.br/curso-web/imagem2.gif" alt="Intro Coder" height="342">
     </div>
     <div class='circular myslide'>
         <div class="numbertext">3/5</div>
-        <img src="http://files.cod3r.com.br/curso-web/imagem3.png" alt="Rio de janeiro"
-        height="342" width="513">
+        <img src="http://files.cod3r.com.br/curso-web/imagem3.png" alt="Rio de janeiro" height="342" width="513">
     </div>
     <div class="myslide">
         <div class="numbertext">3/5</div>
-        <img src="http://files.cod3r.com.br/curso-web/avatar.jpg" alt="avatar"
-        height="50" >
+        <img src="http://files.cod3r.com.br/curso-web/avatar.jpg" alt="avatar" height="50">
     </div>
     <div class="myslide">
         <div class="numbertext">4/5</div>
-        <img src="http://files.cod3r.com.br/curso-web/imagem4.jpg" alt="cidade"
-        width="513" height="342">
+        <img src="http://files.cod3r.com.br/curso-web/imagem4.jpg" alt="cidade" width="513" height="342">
         <!-- tag picture , é para apontar para varias imagens , e ela vai alternando caso as propriedades não sejam satisfeitas. -->
     </div>
     <div class="myslide">
         <picture class="">
             <div class="numbertext">5/5</div>
-            <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png"
-                media='(min-width: 600px)'> <!--Caso essa propriedade não seja satisfeita, ele mostra a imagem de baixo, posso ter varias srcset-->
-                <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="logo"><!--Aqui é a última opção da tag picture-->
-            </picture>
+            <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png" media='(min-width: 600px)'>
+            <!--Caso essa propriedade não seja satisfeita, ele mostra a imagem de baixo, posso ter varias srcset-->
+            <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png"
+                alt="logo"><!--Aqui é a última opção da tag picture-->
+        </picture>
     </div>
 </div>
 
@@ -53,54 +50,57 @@
         // seu não colocar o incremento slideindex++, ele vai sempre mostrar a mesma foto. Só que se eu não colocar o -1 toda vez que ele for mostrar a foto
         // ele nunca vai mostrar a primeira foto, ou seja o indice 0
     }*/
-    
-    function mover (elem,inicio,fim,passo,callback){
+
+    function mover(elem, inicio, fim, passo, callback) {
         const continuar = inicio - passo;
-        if (continuar >=fim){
-            elem.style.left = continuar +'px'
-            setTimeout(()=>mover(elem,continuar,fim,passo,callback), 7)
+        if (continuar >= fim) {
+            elem.style.left = continuar + 'px'
+            setTimeout(() => mover(elem, continuar, fim, passo, callback), 7)
         } else {
             callback()
         }
     }
-    
-    function slider(){
+
+    function slider() {
         const elementos = document.querySelectorAll('[wm]>div') //querySelectorAll.. não retorna um array, ele retorna um nodelist... tem coisas diferentes
         const slides = Array.from(elementos) //aqui simplismente, eu tenho todos os elementos (As fotos do slide)
-        exibirSlide(slides,slides[0]) // o nome do meu paramentro aqui, tem que ser certo, para fazer referencia ao meu array
+        exibirSlide(slides, slides[0]) // o nome do meu paramentro aqui, tem que ser certo, para fazer referencia ao meu array
     }
     slider()
-    function exibirSlide(slides,slide){// esse paramentro (slide)posso colocar o nome que eu quiser. (porque oque importa é eu colocar como parametro a função acima)
-        slide.style.display='block'
+    function exibirSlide(slides, slide) {// esse paramentro (slide)posso colocar o nome que eu quiser. (porque oque importa é eu colocar como parametro a função acima)
+        slide.style.display = 'block'
 
         const inicio = innerWidth //O tamanho do meu browser(Largura interna da minha página)
-                                //se eu quiser uma largura de uma tag, eu posso usar o clientWidth. Que seria a largura do cliente.
+        //se eu quiser uma largura de uma tag, eu posso usar o clientWidth. Que seria a largura do cliente.
         const fim = -slide.clientWidth// aqui , eu estou falando para sair da minha tag.
-        slide.style.left= `${inicio}px` // aqui, eu estou setando onde a imagem vai começar
-        mover(slide,inicio,fim,5,()=>{//aqui no final, eu estou falando que quando a minha callback for chamada no mover
-            slide.style.display='none'
-            exibirSlide(slides,getProximo(slides,slide))
+        slide.style.left = `${inicio}px` // aqui, eu estou setando onde a imagem vai começar
+        mover(slide, inicio, fim, 5, () => {//aqui no final, eu estou falando que quando a minha callback for chamada no mover
+            slide.style.display = 'none'
+            exibirSlide(slides, getProximo(slides, slide))
         })
     }
-    function getProximo(lista,atual){ //prestar atenção, que o valor de 'i' vai ser sempre o valor do próximo
-        const i = lista.indexOf(atual)+1
-        return i< lista.length ? lista [i] : lista [0]
+    function getProximo(lista, atual) { //prestar atenção, que o valor de 'i' vai ser sempre o valor do próximo
+        const i = lista.indexOf(atual) + 1
+        return i < lista.length ? lista[i] : lista[0]
         //console.log(getproximo,i)
     }
 </script>
-    
+
 <style>
-    .circular{
+    .circular {
         background-color: #444;
         width: 513px;
     }
-    .texto{
+
+    .texto {
         width: 400px;
     }
-    .texto img{
+
+    .texto img {
         margin-right: 10px;
     }
-    .cidade{
+
+    .cidade {
         width: 513px;
         height: 342px;
         background-repeat: no-repeat;
@@ -108,16 +108,18 @@
         background-size: 200%;
 
     }
-    .numbertext{
+
+    .numbertext {
         margin-top: 0px;
         position: absolute;
         padding: 8px 12px;
     }
-    div{
+
+    div {
         position: absolute;
     }
-    .myslide{
+
+    .myslide {
         display: none;
     }
-    
 </style>

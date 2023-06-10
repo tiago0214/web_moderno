@@ -6,6 +6,24 @@
     <title>Especificidade CSS</title>
     <style>
         /* https://developer.mozilla.org/pt-BR/docs/Web/CSS/Specificity */
+        /* 1. Regra do !important:
+           2. Seletores mais especificos
+           3. Última regra processada
+        */
+        p{/*Especidade menor que a da baixo*/
+            background-color: #aaa;
+        }
+        .observacao{/*Especidade menor que a da baixo*/
+            background-color: #5F5 !important;/*Mesmo aplicando o !important,não muda a ordem de aplicação, porque é propriedade é diferente do background*/
+            border: dashed 5px;
+            padding: 200px !important;/*Aqui faz diferença*/
+            font-size: 40px;
+        }
+        p.observacao{
+            padding: 2px ;
+            background: linear-gradient(to right, red , yellow);/*Aqui é diferente: aqui é so background la em cima é background-color*/
+        }
+        
     </style>
 </head>
 
