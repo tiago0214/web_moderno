@@ -9,6 +9,3 @@ b=temp
 
 console.log(a);
 console.log(b);
-/* se eu definifir uma variavel com VAR, eu consigo atribuir outro valor para a mesma 
-variavel depois (identificador), agora se eu definir como let,eu não consigo alterar
-o valor da variavel depois.*/ 

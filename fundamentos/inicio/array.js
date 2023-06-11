@@ -10,7 +10,8 @@ console.log(valores)
 console.log(valores.length) // para saber quantos elementos tem dentro do array
 
 /*posso adicionar texto no array*/
-valores.push({id:3}, 'posso colocar qualquer coisa aqui', null,false)
+
+valores.push({objetoaqui:3}, 'posso colocar qualquer coisa aqui', null,false)
 
 console.log(valores)
 /*formas de retirar valores de dentro do array*/
