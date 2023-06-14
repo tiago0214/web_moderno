@@ -5,11 +5,26 @@
     <meta charset="UTF-8">
     <title>Unidades #01</title>
     <style>
-        /* ... */
+        /* unidades relativas
+        vh: é a altura de forma relativa
+        vw: é a largura de forma relativa
+        logica do v-min e v-max;Eles podem mudar. Eles levam em cosideração qual é a dimensão maior atual do meu viewport, se a altura for maior, o v-max sginifica a altura e o v-min significa a largura... Se eu inverter, o v-max também inverte... Se o meu viewport, estiver com a largura maior no momento, então o v-max, passa a ser a largura".
+        */
+        /* 
+        Fontes ta,bém podem ser de maneira relativa.
+        'rem' esta relacionado ao tamanho raiz da minha aplicação, enquanto o 'em': é uma fonte que é baseada na tag pai. font-size: 2em. estou falando que a minha fonte é 2 vezes a fonte do seu pai.
+        tomar cuidado em usar o '%' porque ele vai mudando: olhar a aula especifica disso.
+        */
+        /* Tomar cuidado com isso agora */
+        /* div{
+            font-size: 100px;
+        } */
     </style>
 </head>
 
 <body>
+    <!-- <h1>Teste</h1>
+    <div><h1>teste</h1></div> -->
     <div class="unidades-absolutas">Opa!</div>
     <div class="unidades-relativas">Epa!</div>
 </body>
