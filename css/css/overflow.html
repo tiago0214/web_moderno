@@ -9,6 +9,10 @@
             height: 100px;
             width: 260px;
             border: solid 3px;
+            overflow: hidden;/*Tudo que estrapolar o elemento, não vai aparecer!*/
+            overflow: scroll;/*Aparece a barrinha de rolagem */
+            overflow-x:scroll ;/*Para que funcione de um lado para o outro*/
+            overflow-y: hidden;/*Preciso disso para esconder o eixo-y caso contrario, ele ainda mostra. Se eu tiver com o hiden, ele não mostra*/
         }
     </style>
 </head>

@@ -11,19 +11,33 @@
 
         .c1 {
             background-color: red;
+            float: right;
         }
 
         .c2 {
             background-color: green;
+            float: left;
+            clear: right;
+            /* clear: right; aqui é para arrumar : para cada elemento respeitar o seu lugar */
         }
         
         .c3 {
             background-color: blue;
+            clear: left;
         }
 
         .c4 {
             background-color: orange;
+            float: right;
         }
+        div{
+            height: 150px;
+            width: 150px;
+        }
+        /* Por padrão, quando o elemento fica flutuando, os outros elementos entram na area dele, uso o clear:'nome do lugar do floar' para limpar */
+        /* Posso usar o clear:both, para limpar todos os lados de float */
+        /* Quando eu uso o clear de um lado, eu estou limpando o float inteiro daquele lado */
+        /* Evitar o uso de float, temos o grid e flex-box, que são muito melhores */
     </style>
 </head>
 

@@ -5,9 +5,15 @@
     <meta charset="UTF-8">
     <title>Altura e Largura</title>
     <style>
+        /* ideal, para corrigir o body pequeno, do tamnho do conteudo */
+        html{
+            height: 100%;
+        }
         body {
             font-size: 40px;
             background-color: coral;
+            height: 100%;
+            /* Se atentar ao background-color e somente ao background , eu não sei porque , mas estava dando erro quando eu estava fazendo o meu gradiente no meu portfólio*/
         }
 
         div {
@@ -18,6 +24,9 @@
             background-color: dodgerblue;
         }
         /* Toda vez que eu uso a unidade de medida relativa(%), ele usa como base para definir o tamanho, o componente como um todo, que ele esta inserido! */
+        /* Se eu colocar unidades absolutas, ele não importa com o componente pai. (ex: 250px) */
+        /* Por padrão, o body ocupa a largura toda, mas não ocupa a altura toda */
+        /* lembrar do probleminha, caso eu queira que eu defina meus elementos, um do lado do outro, com a largura de (50% cada). Preciso tirar o espaço no HTML */
     </style>
 </head>
 

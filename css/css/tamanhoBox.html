@@ -7,6 +7,23 @@
         body {
             font-size: 45px;
         }
+        /* Se atentar: que se eu colocar 100% da minha div, ela vai ocupar 100%, mas isso é ocupado como o conteudo ocupa 100%, ou seja, a minha padding e a margin, não estão ocupando, e estou saindo do 100% caso eu diminua um pouco a minha tela. Para que eu faça com que o meu box inteiro fique na tela do meu dispositivo, eu preciso usar a propriedade box-sizing: border-box... porque o padrão é o content-box. */
+        div{
+            background-color: deepskyblue;
+            width: 100%;
+            height: 300px;
+            padding: 100px;
+            border: solid 20px;
+            /* box-sizing: content-box;   Caso eu não entenda a explicação, basta descomentar isso aqui! */
+            box-sizing: border-box; /*Com isso, ele até altera as coisas*/
+            /* Com essa propriedade, ele faz considerar da borda para dentro, para considerar o tamanho do meu elemento */
+            /* Porque, caso eu use o content-box. Quando eu defino o tamanho, eu estou definindo o tamanho somente do meu conteudo, e quando eu uso o border-box, para definir o tamanho do meu elemento, eu sempre considero o tamanho dele inteiro, e não somente o conteudo! */
+
+            /* Para que eu possa aplicar de maneira universal o border-box. é so usar o seletor universal, igual ai de baixo  */
+        }
+        *{
+            box-sizing: border-box;
+        }
     </style>
 </head>
 <body>
